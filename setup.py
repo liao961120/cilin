@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="cilin", # Replace with your own username
-    version="0.0.1",
+    version="0.0.3",
     author="Yongfu Liao",
     author_email="liao961120@gmail.com",
     description="API for Cilin",
@@ -15,7 +15,7 @@ setuptools.setup(
     # package_dir = {'': 'src'},
     packages=['cilin'],
     package_data={
-        "": ["data/cilin_tree.json"],
+        "": ["../data/cilin_tree.json"],
     },
     classifiers=[
         "Programming Language :: Python :: 3",
