@@ -10,8 +10,11 @@ from collections import Counter
 from itertools import product, chain
 
 
-def classification_report(y_test, predictions):
-    return pd.DataFrame(cls_report(y_test, predictions, output_dict=True)).T
+def classification_report(y_test, predictions, pandas=True):
+    if pandas:
+        return pd.DataFrame(cls_report(y_test, predictions, output_dict=True, zero_division=0)).T
+    return cls_report(y_test, predictions, output_dict=True, zero_division=0)
+
 
 def train_test_split(df_feature, df_tgt, tgt_col="lev1", test_size=0.2, random_state=101):
     test_idx = df_tgt.groupby(tgt_col).sample(frac=test_size, random_state=random_state).index
@@ -22,7 +25,8 @@ def train_test_split(df_feature, df_tgt, tgt_col="lev1", test_size=0.2, random_s
 
 class RadicalSemanticTagger:
 
-    def __init__(self, all_words) -> None:
+    def __init__(self, all_words, bigram=True) -> None:
+        self.bigram = bigram
         self.radicals = Radicals.load()
         with open('radical_semantic_tag.json', encoding='utf-8') as f:
             self.rad_sem = json.load(f)
@@ -61,9 +65,11 @@ class RadicalSemanticTagger:
 
     def tag_word(self, word:str):
         tags = self.sem_feats(word)
-        if len(word) == 2: return self.feat_comb(tags)
-        if len(word) > 2 or len(word) == 1: 
-            return list(chain.from_iterable(tags))
+        if self.bigram:
+            if len(word) == 2: return self.feat_comb(tags)
+            if len(word) > 2 or len(word) == 1: 
+                return list(chain.from_iterable(tags))
+        return list(chain.from_iterable(tags))
 
 
     def sem_feats(self, word):
