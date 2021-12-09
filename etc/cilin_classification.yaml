@@ -1,0 +1,130 @@
+A:
+  class: "人"
+  subclass:
+    Aa: 泛稱
+    Ab: 男女老少
+    Ac: 體態
+    Ad: 籍屬
+    Ae: 職業
+    Af: 身份
+    Ag: 狀況
+    Ah: 親人/眷屬
+    Ai: 輩次
+    Aj: 關係
+    Ak: 品行
+    Al: 才識
+    Am: 信仰
+    An: 醜類
+B: 
+  class: "物"
+  subclass:
+    Ba: 統稱
+    Bb: 擬狀物
+    Bc: 物體的部分
+    Bd: 天體
+    Be: 地貌
+    Bf: 氣象
+    Bg: 自然物
+    Bh: 植物
+    Bi: 動物
+    Bj: 微生物
+    Bk: 全身
+    Bl: 排泄物/分泌物
+    Bm: 材料
+    Bn: 建築物
+    Bo: 機具
+    Bp: 用品
+    Bq: 衣物
+    Br: 食品/藥品/毒品
+C: 
+  class: "時間與空間"
+  subclass:
+    Ca: 時間
+    Cb: 空間
+D: 
+  class: "抽象事物"
+  subclass:
+    Da: 事情/情況
+    Db: 事理
+    Dc: 外貌
+    Dd: 性能
+    De: 性格/才能
+    Df: 意識
+    Dg: 比喻物
+    Dh: 臆想物
+    Di: 社會/政法
+    Dj: 經濟
+    Dk: 文教
+    Dl: 疾病
+    Dm: 機構
+    Dn: 數量/單位
+E:
+  class: "特徵"
+  subclass:
+    Ea: 外形
+    Eb: 表象
+    Ec: 顏色/味道
+    Ed: 性質
+    Ee: 德才
+    Ef: 境況
+F: 
+  class: "動作"
+  subclass:
+    Fa: 上肢動作
+    Fb: 下肢動作
+    Fc: 頭部動作
+    Fd: 全身動作
+G: 
+  class: "心理活動"
+  subclass:
+    Ga: 心理狀態
+    Gb: 心理活動
+    Gc: 能願
+H: 
+  class: "活動"
+  subclass:
+    Ha: 政治活動
+    Hb: 軍事活動
+    Hc: 行政管理
+    Hd: 生產
+    He: 經濟活動
+    Hf: 交通運輸
+    Hg: 教衛科研
+    Hh: 文體活動
+    Hi: 社交
+    Hj: 生活
+    Hk: 宗教活動
+    Hl: 迷信活動
+    Hm: 公安/司法
+    Hn: 惡行
+I: 
+  class: "現象與狀態"
+  subclass:
+    Ia: 自然現象
+    Ib: 生理現象
+    Ic: 表情
+    Id: 物體狀態
+    Ie: 事態
+    If: 境遇
+    Ig: 始末
+    Ih: 變化
+J: 
+  class: "關聯"
+  subclass:
+    Ja: 聯繫
+    Jb: 異同
+    Jc: 配合
+    Jd: 存在
+    Je: 影響
+K: 
+  class: "助語"
+  subclass:
+    Ka: 疏狀
+    Kb: 中介
+    Kc: 聯接
+    Kd: 輔助
+    Ke: 呼嘆
+    Kf: 擬聲
+L:
+  class: "敬語"
+  La: 敬語
