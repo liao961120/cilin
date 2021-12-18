@@ -23,7 +23,7 @@ C = Cilin(trad=False)  # trad=True to convert results to traditional Chinese
 >>> C.get_tag('Aa01')
 '人 人民 众人 角色'
 
-# Terms under a certain category
+# Terms under a particular category
 >>> C.get_members('Ca01B')
 {'己巳', '回历', '戊辰', '丙寅', '太阴历', '子丑寅卯', '庚午', '地支', '乙丑', '夏历', '甲午', '旧历', '天干', '巳', '子午卯酉', '阴历', '戊寅', '戊戌', '伊斯兰教历', '丁卯', '农历', '庚子', '庚申', '癸', '辛未', '辛亥'}
 >>> C.get_members('Ca01B01=')
