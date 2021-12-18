@@ -2,7 +2,6 @@
 import json
 import numpy as np
 import pandas as pd
-from cilin import Cilin
 from CompoTree import Radicals
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import classification_report as cls_report
@@ -25,7 +24,8 @@ def train_test_split(df_feature, df_tgt, tgt_col="lev1", test_size=0.2, random_s
 
 class RadicalSemanticTagger:
 
-    def __init__(self, all_words, bigram=True) -> None:
+    def __init__(self, all_words, bigram=True, word_type=None) -> None:
+        self.word_type = word_type  # single, double, both
         self.bigram = bigram
         self.radicals = Radicals.load()
         with open('radical_semantic_tag.json', encoding='utf-8') as f:
@@ -59,6 +59,12 @@ class RadicalSemanticTagger:
 
 
     def tag_words(self, words:list):
+        if self.word_type == "single":
+            words = (w for w in words if len(w) == 1)
+        elif self.word_type == "double": 
+            words = (w for w in words if len(w) == 2)
+        elif self.word_type == "both": 
+            words = (w for w in words if len(w) == 2 or len(w) == 1)
         tags = chain.from_iterable(self.tag_word(w) for w in words)
         return tags #Counter(tags)
 
