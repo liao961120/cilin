@@ -23,6 +23,9 @@ def train_test_split(df_feature, df_tgt, tgt_col="lev1", test_size=0.2, random_s
 
 
 class RadicalSemanticTagger:
+    
+    word2tags = {}
+    tag2words = {}
 
     def __init__(self, all_words, bigram=True, word_type=None) -> None:
         self.word_type = word_type  # single, double, both
@@ -72,10 +75,19 @@ class RadicalSemanticTagger:
     def tag_word(self, word:str):
         tags = self.sem_feats(word)
         if self.bigram:
-            if len(word) == 2: return self.feat_comb(tags)
+            if len(word) == 2: 
+                tags = self.feat_comb(tags)
             if len(word) > 2 or len(word) == 1: 
-                return list(chain.from_iterable(tags))
-        return list(chain.from_iterable(tags))
+                tags = list(chain.from_iterable(tags))
+        else:
+            tags = list(chain.from_iterable(tags))
+        
+        # Save word-tag map
+        for t in tags:
+            self.tag2words.setdefault(t, set()).add(word)
+            self.word2tags.setdefault(word, set()).add(t)
+        
+        return tags
 
 
     def sem_feats(self, word):
